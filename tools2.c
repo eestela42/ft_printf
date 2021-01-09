@@ -17,7 +17,6 @@ void	put_preci(t_tool *tool, int size)
 {
 	int		number;
 	int		i;
-
 	number = tool->preci - size;
 	i = 0;
 	if (number > 0)

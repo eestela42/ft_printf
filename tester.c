@@ -15,10 +15,11 @@ int main()
 	bar = 124;
 	a = malloc(sizeof(int));
 	//write(1,  &bar, 1);
-	r = ft_printf("%.*s", -3, 0);
+	r = ft_printf("|%.*s|\n", -3, "hello");
 	//printf("|\n|");
-	t =    printf("%.*s", -3, 0);
-	printf("r = %i\nt = %i\n", r, t);
+	t =    printf("|%.*s|\n", -3, "hello");
+	//printf("t = %i\n", t - 3);
+	printf("r = %i\nt = %i\n", r - 3, t - 3);
 	
 	
 /*

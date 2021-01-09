@@ -14,6 +14,7 @@ void	init_tool(t_tool *tool, char *form)
 	tool->plus = 0;
 	tool->minus = 0;
 	tool->zero = 0;
+	tool->space = 0;
 }
 
 void	init_tab(void (*tab[128])(t_tool *tool, va_list ap))
@@ -62,6 +63,7 @@ void	reset_tool(t_tool *tool)
 	tool->plus = 0;
 	tool->minus = 0;
 	tool->zero = 0;
+	tool->space = 0;
 }
 
 void	tag(void (*tab[128])(t_tool *tool, va_list ap), t_tool *tool, va_list ap)

@@ -5,6 +5,8 @@ int		size_add(uintptr_t num)
 	int		i;
 
 	i = 0;
+	if (num == 0)
+		return(3);
 	while (num)
 	{
 		num /= 16;
@@ -26,6 +28,8 @@ char	*add_to_str(t_tool *tool, char *tab, uintptr_t num, int size)
 	i = size - 1;
 	hexa[0] = '0';
 	hexa[1] = 'x';
+	if (num == 0)
+		hexa[2] = '0';
 	while (num)
 	{
 		hexa[i--] = tab[num % 16];

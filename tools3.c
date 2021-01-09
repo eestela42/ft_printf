@@ -1,11 +1,11 @@
 #include "ft_printf.h"
 
-int	ft_strlen(char *str)
+void	put_added(t_tool *tool, int num)
 {
-	int i;
-
-	i = 0;
-	while(str[i])
-		i++;
-	return(i++);
+	if (num < 0)
+		char_to_buff(tool, '-');
+	else if (tool->plus && num >= 0)
+		char_to_buff(tool, '+');
+	else if (tool->space)
+		char_to_buff(tool, ' ');
 }

@@ -1,11 +1,13 @@
 #include "ft_printf.h"
 
-int		hexa_size(unsigned int num)
+int		hexa_size(unsigned int num, t_tool *tool)
 {
 	int	i;
 
 	i = 0;
-	if (num == 0)
+	if (tool->if_preci && !tool->preci && num == 0)
+		return(0);
+	else if (num == 0)
 		return(1);
 	while (num)
 	{
@@ -46,13 +48,13 @@ void	manage_hex(t_tool *tool, va_list ap)
 	space = ' ';
 	if (tool->zero && !tool->if_preci)
 		space = '0';
-	tool->width = width_int(0, hexa_size(num), tool->preci, tool->width);
+	tool->width = width_int(0, hexa_size(num, tool), tool->preci, tool->width);
 	if (!tool->minus)
 		put_width(tool, tool->width, space);
 	if (tool->if_preci)
-		put_preci(tool, hexa_size(num));
-	tab = reversed_hexa(num, tab, hexa_size(num), tool);
-	if (num == 0)
+		put_preci(tool, hexa_size(num, tool));
+	tab = reversed_hexa(num, tab, hexa_size(num, tool), tool);
+	if (num == 0 && !(tool->if_preci && !tool->preci))
 		char_to_buff(tool, '0');
 	else if (tab && tool->secu != -1)
 		str_to_buff(tool, tab, 100);

@@ -1,6 +1,6 @@
 #include "ft_printf.h"
 
-void	manage_str(t_tool *tool, va_list ap)
+/*void	manage_str(t_tool *tool, va_list ap)
 {
 	char	*str;
 	int		size;
@@ -23,7 +23,7 @@ void	manage_str(t_tool *tool, va_list ap)
 		put_width(tool, spaces, ' ');
 	tool->secu = 0;
 }
-
+*/
 void	manage_char(t_tool *tool, va_list ap)
 {
 	char	c;

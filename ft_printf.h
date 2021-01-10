@@ -36,7 +36,8 @@ void	put_preci(t_tool *tool, int size);
 void	str_to_buff(t_tool *tool, char *str, int size);
 void	char_to_buff(t_tool *tool, char c);
 int		width_int(int added, int size, int preci, int width);
-void	put_added(t_tool *tool, int num);
+
+int	ft_strlen(char *str);
 
 void	skip(t_tool *tool, va_list ap);
 void	plus(t_tool *tool, va_list ap);
@@ -53,5 +54,6 @@ void	manage_per(t_tool *tool, va_list ap);
 void	manage_int(t_tool *tool, va_list ap);
 void	manage_hex(t_tool *tool, va_list ap);
 void	manage_add(t_tool *tool, va_list ap);
+void	manage_uns(t_tool *tool, va_list ap);
 
 #endif

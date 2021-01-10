@@ -38,6 +38,7 @@ void	init_tab(void (*tab[128])(t_tool *tool, va_list ap))
 	tab['s'] = manage_str;
 	tab['d'] = manage_int;
 	tab['i'] = manage_int;
+	tab['u'] = manage_uns;
 	tab['p'] = manage_add;
 	tab['x'] = manage_hex;
 	tab['X'] = manage_hex;

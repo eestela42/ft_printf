@@ -11,7 +11,7 @@ SRC = ft_printf.c		\
 		manage_hexa.c	\
 		manage_int.c	\
 		manage_add.c	\
-
+		manage_uns.c	\
 
 INC = ft_printf.h
 AR = ar -rc

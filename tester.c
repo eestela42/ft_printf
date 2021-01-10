@@ -15,9 +15,9 @@ int main()
 	bar = 124;
 	a = malloc(sizeof(int));
 	//write(1,  &bar, 1);
-	r = ft_printf("|%.*s|\n", -3, "hello");
+	r = ft_printf("|%p|\n", NULL);
 	//printf("|\n|");
-	t =    printf("|%.*s|\n", -3, "hello");
+	t =    printf("|%p|\n", NULL);
 	//printf("t = %i\n", t - 3);
 	printf("r = %i\nt = %i\n", r - 3, t - 3);
 	

@@ -1,6 +1,6 @@
 #include "ft_printf.h"
 
-int		how_long(int num)
+int		how_long_uns(unsigned int num)
 {
 	int	size;
 
@@ -15,17 +15,10 @@ int		how_long(int num)
 	return(size);
 }
 
-char		*ft_itoa_printf(int n)
+char		*ft_itoa_printf_uns(unsigned int m, int len)
 {
 	char			*tab;
-	int				len;
-	unsigned int	m;
 
-	if (n < 0)
-		m = -n;
-	else
-		m = n;
-	len = how_long(m);
 	if (!(tab = malloc((len + 1) * sizeof(char))))
 		return (NULL);
 	tab[len] = 0;
@@ -38,21 +31,11 @@ char		*ft_itoa_printf(int n)
 	return (tab);
 }
 
-void	put_added(t_tool *tool, int num)
-{
-	if (num < 0)
-		char_to_buff(tool, '-');
-	else if (tool->plus && num >= 0)
-		char_to_buff(tool, '+');
-	else if (tool->space)
-		char_to_buff(tool, ' ');
-}
-
-void	put_int(t_tool *tool, int num, char space, int size)
+void	put_uns(t_tool *tool, unsigned int num, char space, int size)
 {
 	char		*number;
 
-	number = ft_itoa_printf(num);
+	number = ft_itoa_printf_uns(num, size);
 	if (tool->if_preci && !tool->preci && num == 0)
 	{
 		size = 0;
@@ -60,12 +43,16 @@ void	put_int(t_tool *tool, int num, char space, int size)
 	}
 	if (!tool->minus)
 	{
-		if (space == '0')
-			put_added(tool, num);
+		if (space == '0' && tool->plus)
+			char_to_buff(tool, '+');
+		else if (space == '0' && tool->space)
+			char_to_buff(tool, ' ');
 		put_width(tool, tool->width, space);
 	}
-	if (tool->minus || space != '0')
-		put_added(tool, num);
+	if ((tool->minus || space != '0') && tool->plus)
+		char_to_buff(tool, '+');
+	else if ((tool->minus || space != '0') && tool->space)
+		char_to_buff(tool, ' ');
 	put_preci(tool, size);
 	str_to_buff(tool, number, size);
 	free(number);
@@ -73,24 +60,24 @@ void	put_int(t_tool *tool, int num, char space, int size)
 		put_width(tool, tool->width, space);
 }
 
-void	manage_int(t_tool *tool, va_list ap)
+void	manage_uns(t_tool *tool, va_list ap)
 {
-	long int	num;
-	char		space;
-	int			size;
-	int			added;
+	unsigned int	num;
+	char			space;
+	int				size;
+	int				added;
 
 	space = ' ';
 	if (tool->zero && !tool->minus && (!tool->if_preci || tool->preci < 0))
 		space = '0';
-	num = va_arg(ap, int);
-	size = how_long(num);
+	num = va_arg(ap, unsigned int);
+	size = how_long_uns(num);
 	if (tool->if_preci && !tool->preci && num == 0)
 		size = 0;
 	added = 0;
-	if (num < 0 || tool->plus || tool->space)
+	if (tool->plus || tool->space)
 		added++;
 	tool->width = width_int(added, size, tool->preci, tool->width);
-	put_int(tool, num, space, size);
+	put_uns(tool, num, space, size);
 	tool->secu = 0;		
 }

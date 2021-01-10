@@ -21,6 +21,8 @@ char	*reversed_hexa(unsigned int num, char *tab, int size, t_tool *tool)
 {
 	char	*hexa;
 
+	if (tool->minus)
+		tool->zero = 0;
 	if (!(hexa = malloc(sizeof(char) * (size + 1))))
 	{
 		return(NULL);
@@ -46,14 +48,14 @@ void	manage_hex(t_tool *tool, va_list ap)
 		tab = "0123456789ABCDEF";
 	num = va_arg(ap, unsigned int);
 	space = ' ';
-	if (tool->zero && !tool->if_preci)
-		space = '0';
 	tool->width = width_int(0, hexa_size(num, tool), tool->preci, tool->width);
+	tab = reversed_hexa(num, tab, hexa_size(num, tool), tool);
+	if (tool->zero && (!tool->if_preci || tool->preci < 0))
+		space = '0';
 	if (!tool->minus)
 		put_width(tool, tool->width, space);
 	if (tool->if_preci)
 		put_preci(tool, hexa_size(num, tool));
-	tab = reversed_hexa(num, tab, hexa_size(num, tool), tool);
 	if (num == 0 && !(tool->if_preci && !tool->preci))
 		char_to_buff(tool, '0');
 	else if (tab && tool->secu != -1)

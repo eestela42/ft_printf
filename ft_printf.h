@@ -6,7 +6,7 @@
 #include <unistd.h>
 #include <stdarg.h>
 
-#define BUFFER_SIZE 1024
+#define	BUFFER_SIZE	1024
 
 typedef struct	s_tool
 {
@@ -30,7 +30,8 @@ int		ft_printf(char *form, ...) __attribute__((format(printf, 1, 2)));
 void	init_tool(t_tool *tool, char *form);
 void	init_tab(void (*tab[128])(t_tool *tool, va_list ap));
 void	put_buff(t_tool *tool);
-void	tag(void (*tab[128])(t_tool *tool, va_list ap), t_tool *tool, va_list ap);
+void	tag(void (*tab[128])(t_tool *tool, va_list ap), t_tool *tool,
+		va_list ap);
 void	put_width(t_tool *tool, int spaces, char space);
 void	put_preci(t_tool *tool, int size);
 void	str_to_buff(t_tool *tool, char *str, int size);

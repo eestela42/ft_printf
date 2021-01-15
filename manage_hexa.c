@@ -40,6 +40,7 @@ char	*reversed_hexa(unsigned int num, char *tab, int size, t_tool *tool)
 char	*min_maj(t_tool *tool)
 {
 	char	*tab;
+	
 	if (tool->form[tool->pos] == 'x')
 		tab = "0123456789abcdef";
 	if (tool->form[tool->pos] == 'X')

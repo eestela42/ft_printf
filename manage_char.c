@@ -8,7 +8,7 @@ void	manage_char(t_tool *tool, va_list ap)
 	space = ' ';
 	if (tool->zero && !tool->minus)
 		space = '0';
-	c = (char) va_arg(ap, int);
+	c = (char)va_arg(ap, int);
 	if (!tool->minus)
 		put_width(tool, tool->width - 1, space);
 	char_to_buff(tool, c);

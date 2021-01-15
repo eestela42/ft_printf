@@ -69,18 +69,12 @@ void	reset_tool(t_tool *tool)
 
 void	tag(void (*tab[128])(t_tool *tool, va_list ap), t_tool *tool, va_list ap)
 {
-	//printf("pre pos = %i", tool->pos);
 	tool->pos++;
-	//printf("post pos = %i", tool->pos);
 	while(tool->secu == 1)
 	{
-		//printf("\nform[] = %c", tool->form[tool->pos]);
 		tab[(int)tool->form[tool->pos]](tool, ap);
 		tool->pos++;
-
-		//printf("\nsecu = %i\n", tool->secu);
 	}
-	//printf("\n\nif_preci = %i\npreci = %i\nif_width = %i\nwidth = %i\nplus = %i\nminus = %i\nzero = %i\nspace = %i\nsecu = %i\n", tool->if_preci, tool->preci, tool->if_width, tool->width, tool->plus, tool->minus, tool->zero, tool->space, tool->secu);
 	if (tool->secu == 0)
 		reset_tool(tool);
 }

@@ -1,6 +1,6 @@
 #include "ft_printf.h"
 
-int		size_add(uintptr_t num, t_tool *tool)
+int			size_add(uintptr_t num, t_tool *tool)
 {
 	int		i;
 
@@ -17,7 +17,7 @@ int		size_add(uintptr_t num, t_tool *tool)
 	return (i);
 }
 
-char	*add_to_str(t_tool *tool, char *tab, uintptr_t num, int size)
+char		*add_to_str(t_tool *tool, char *tab, uintptr_t num, int size)
 {
 	char	*hexa;
 	int		i;
@@ -46,7 +46,7 @@ void		add_width(t_tool *tool, int size)
 		tool->width += -(size + 2);
 }
 
-void	put_add(t_tool *tool, char *tab, int size, char space)
+void		put_add(t_tool *tool, char *tab, int size, char space)
 {
 	if (!tool->minus && space != '0')
 		put_width(tool, tool->width, space);
@@ -60,7 +60,7 @@ void	put_add(t_tool *tool, char *tab, int size, char space)
 	free(tab);
 }
 
-void	manage_add(t_tool *tool, va_list ap)
+void		manage_add(t_tool *tool, va_list ap)
 {
 	char			*tab;
 	uintptr_t		num;

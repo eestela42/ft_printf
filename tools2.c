@@ -17,6 +17,7 @@ void	put_preci(t_tool *tool, int size)
 {
 	int		number;
 	int		i;
+
 	number = tool->preci - size;
 	i = 0;
 	if (number > 0)
@@ -53,6 +54,6 @@ void	char_to_buff(t_tool *tool, char c)
 int		width_int(int added, int size, int preci, int width)
 {
 	if (preci > size)
-		return(width - (preci + added));
-	return(width - (size + added));
+		return (width - (preci + added));
+	return (width - (size + added));
 }

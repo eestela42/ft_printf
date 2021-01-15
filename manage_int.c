@@ -1,6 +1,6 @@
 #include "ft_printf.h"
 
-int		how_long(int num)
+int			how_long(int num)
 {
 	int	size;
 
@@ -12,7 +12,7 @@ int		how_long(int num)
 		num = num / 10;
 		size++;
 	}
-	return(size);
+	return (size);
 }
 
 char		*ft_itoa_printf(int n)
@@ -38,7 +38,7 @@ char		*ft_itoa_printf(int n)
 	return (tab);
 }
 
-void	put_added(t_tool *tool, int num)
+void		put_added(t_tool *tool, int num)
 {
 	if (num < 0)
 		char_to_buff(tool, '-');
@@ -48,7 +48,7 @@ void	put_added(t_tool *tool, int num)
 		char_to_buff(tool, ' ');
 }
 
-void	put_int(t_tool *tool, int num, char space, int size)
+void		put_int(t_tool *tool, int num, char space, int size)
 {
 	char		*number;
 
@@ -73,7 +73,7 @@ void	put_int(t_tool *tool, int num, char space, int size)
 		put_width(tool, tool->width, space);
 }
 
-void	manage_int(t_tool *tool, va_list ap)
+void		manage_int(t_tool *tool, va_list ap)
 {
 	long int	num;
 	char		space;
@@ -92,5 +92,5 @@ void	manage_int(t_tool *tool, va_list ap)
 		added++;
 	tool->width = width_int(added, size, tool->preci, tool->width);
 	put_int(tool, num, space, size);
-	tool->secu = 0;		
+	tool->secu = 0;
 }

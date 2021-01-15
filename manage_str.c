@@ -5,9 +5,9 @@ int		ft_strlen_str(char *str)
 	int i;
 
 	i = 0;
-	while(str[i])
+	while (str[i])
 		i++;
-	return(i++);
+	return (i++);
 }
 
 void	manage_str(t_tool *tool, va_list ap)
@@ -32,5 +32,3 @@ void	manage_str(t_tool *tool, va_list ap)
 		put_width(tool, tool->width - size, space);
 	tool->secu = 0;
 }
-	
-	

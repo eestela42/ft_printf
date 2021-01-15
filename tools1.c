@@ -67,10 +67,11 @@ void	reset_tool(t_tool *tool)
 	tool->space = 0;
 }
 
-void	tag(void (*tab[128])(t_tool *tool, va_list ap), t_tool *tool, va_list ap)
+void	tag(void (*tab[128])(t_tool *tool, va_list ap), t_tool *tool,
+		va_list ap)
 {
 	tool->pos++;
-	while(tool->secu == 1)
+	while (tool->secu == 1)
 	{
 		tab[(int)tool->form[tool->pos]](tool, ap);
 		tool->pos++;

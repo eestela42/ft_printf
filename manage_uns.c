@@ -1,6 +1,6 @@
 #include "ft_printf.h"
 
-int		how_long_uns(unsigned int num)
+int			how_long_uns(unsigned int num)
 {
 	int	size;
 
@@ -12,7 +12,7 @@ int		how_long_uns(unsigned int num)
 		num = num / 10;
 		size++;
 	}
-	return(size);
+	return (size);
 }
 
 char		*ft_itoa_printf_uns(unsigned int m, int len)
@@ -31,7 +31,7 @@ char		*ft_itoa_printf_uns(unsigned int m, int len)
 	return (tab);
 }
 
-void	put_uns(t_tool *tool, unsigned int num, char space, int size)
+void		put_uns(t_tool *tool, unsigned int num, char space, int size)
 {
 	char		*number;
 
@@ -60,7 +60,7 @@ void	put_uns(t_tool *tool, unsigned int num, char space, int size)
 		put_width(tool, tool->width, space);
 }
 
-void	manage_uns(t_tool *tool, va_list ap)
+void		manage_uns(t_tool *tool, va_list ap)
 {
 	unsigned int	num;
 	char			space;
@@ -79,5 +79,5 @@ void	manage_uns(t_tool *tool, va_list ap)
 		added++;
 	tool->width = width_int(added, size, tool->preci, tool->width);
 	put_uns(tool, num, space, size);
-	tool->secu = 0;		
+	tool->secu = 0;
 }

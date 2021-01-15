@@ -34,18 +34,25 @@ char	*reversed_hexa(unsigned int num, char *tab, int size, t_tool *tool)
 		hexa[--size] = tab[num % 16];
 		num /= 16;
 	}
-	return  (hexa);
+	return (hexa);
 }
 
+char	*min_maj(t_tool *tool)
+{
+	char	*tab;
+	if (tool->form[tool->pos] == 'x')
+		tab = "0123456789abcdef";
+	if (tool->form[tool->pos] == 'X')
+		tab = "0123456789ABCDEF";
+	return (tab);
+}
 void	manage_hex(t_tool *tool, va_list ap)
 {
 	char			*tab;
 	unsigned int	num;
 	char			space;
 
-	tab = "0123456789abcdef";
-	if (tool->form[tool->pos] == 'X')
-		tab = "0123456789ABCDEF";
+	tab = min_maj
 	num = va_arg(ap, unsigned int);
 	space = ' ';
 	tool->width = width_int(0, hexa_size(num, tool), tool->preci, tool->width);

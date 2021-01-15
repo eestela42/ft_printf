@@ -8,7 +8,7 @@ int		ft_printf(char *form, ...)
 	int			r;
 
 	if (!(tool = (struct s_tool *)malloc(sizeof(t_tool))))
-		return(0);
+		return(0) ;
 	init_tool(tool, form);
 	init_tab(tab);
 	va_start(ap, form);
@@ -24,5 +24,5 @@ int		ft_printf(char *form, ...)
 	put_buff(tool);
 	r = tool->r;
 	free(tool);
-	return(r);
+	return(r) ;
 }

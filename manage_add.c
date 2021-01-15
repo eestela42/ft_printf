@@ -46,6 +46,20 @@ void		add_width(t_tool *tool, int size)
 		tool->width += -(size + 2);
 }
 
+void	put_add(t_tool *tool, char *tab, int size, char space)
+{
+	if (!tool->minus && space != '0')
+		put_width(tool, tool->width, space);
+	str_to_buff(tool, "0x", 2);
+	if (!tool->minus && space == '0')
+		put_width(tool, tool->width, space);
+	put_preci(tool, size);
+	str_to_buff(tool, tab, size);
+	if (tool->minus)
+		put_width(tool, tool->width, space);
+	free(tab);
+}
+
 void	manage_add(t_tool *tool, va_list ap)
 {
 	char			*tab;
@@ -66,15 +80,6 @@ void	manage_add(t_tool *tool, va_list ap)
 		return ;
 	}
 	add_width(tool, size);
-	if (!tool->minus && space != '0')
-		put_width(tool, tool->width, space);
-	str_to_buff(tool, "0x", 2);
-	if (!tool->minus && space == '0')
-		put_width(tool, tool->width, space);
-	put_preci(tool, size);
-	str_to_buff(tool, tab, size);
-	if (tool->minus)
-		put_width(tool, tool->width, space);
-	free(tab);
+	put_add(tool, tab, size, space);
 	tool->secu = 0;
 }

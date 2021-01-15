@@ -6,15 +6,15 @@ int		hexa_size(unsigned int num, t_tool *tool)
 
 	i = 0;
 	if (tool->if_preci && !tool->preci && num == 0)
-		return(0);
+		return (0);
 	else if (num == 0)
-		return(1);
+		return (1);
 	while (num)
 	{
 		num /= 16;
 		i++;
 	}
-	return(i);
+	return (i);
 }
 
 char	*reversed_hexa(unsigned int num, char *tab, int size, t_tool *tool)
@@ -25,16 +25,16 @@ char	*reversed_hexa(unsigned int num, char *tab, int size, t_tool *tool)
 		tool->zero = 0;
 	if (!(hexa = malloc(sizeof(char) * (size + 1))))
 	{
-		return(NULL);
+		return (NULL);
 		tool->secu = -1;
 	}
-	hexa[size] = 0;;
+	hexa[size] = 0;
 	while (num)
 	{
 		hexa[--size] = tab[num % 16];
 		num /= 16;
 	}
-	return(hexa);
+	return  (hexa);
 }
 
 void	manage_hex(t_tool *tool, va_list ap)

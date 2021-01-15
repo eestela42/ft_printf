@@ -6,15 +6,15 @@ int		size_add(uintptr_t num, t_tool *tool)
 
 	i = 0;
 	if (!num && tool->if_preci && !tool->preci)
-		return(0);
+		return (0);
 	else if (!num)
-		return(1);
+		return (1);
 	while (num)
 	{
 		num /= 16;
 		i++;
 	}
-	return(i);
+	return (i);
 }
 
 char	*add_to_str(t_tool *tool, char *tab, uintptr_t num, int size)
@@ -25,7 +25,7 @@ char	*add_to_str(t_tool *tool, char *tab, uintptr_t num, int size)
 	if (!(hexa = malloc(sizeof(char) * (size + 1))))
 	{
 		tool->secu = -1;
-		return(NULL);
+		return (NULL);
 	}
 	i = size - 1;
 	if (!num)
@@ -35,16 +35,16 @@ char	*add_to_str(t_tool *tool, char *tab, uintptr_t num, int size)
 		hexa[i--] = tab[num % 16];
 		num /= 16;
 	}
-	return(hexa);
+	return (hexa);
 }
 
 void		add_width(t_tool *tool, int size)
-	{
-		if (tool->preci > size)
-			tool->width += -(tool->preci + 2);
-		else
-			tool->width += -(size + 2);
-	}
+{
+	if (tool->preci > size)
+		tool->width += -(tool->preci + 2);
+	else
+		tool->width += -(size + 2);
+}
 
 void	manage_add(t_tool *tool, va_list ap)
 {

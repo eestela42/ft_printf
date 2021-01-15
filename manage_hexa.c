@@ -46,13 +46,14 @@ char	*min_maj(t_tool *tool)
 		tab = "0123456789ABCDEF";
 	return (tab);
 }
+
 void	manage_hex(t_tool *tool, va_list ap)
 {
 	char			*tab;
 	unsigned int	num;
 	char			space;
 
-	tab = min_maj
+	tab = min_maj(tool);
 	num = va_arg(ap, unsigned int);
 	space = ' ';
 	tool->width = width_int(0, hexa_size(num, tool), tool->preci, tool->width);

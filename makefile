@@ -5,7 +5,6 @@ SRC = ft_printf.c		\
 		fill_tab2.c		\
 		tools1.c		\
 		tools2.c		\
-		tools3.c		\
 		manage_char.c	\
 		manage_str.c	\
 		manage_hexa.c	\
